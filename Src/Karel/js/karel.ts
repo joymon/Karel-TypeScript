@@ -4,8 +4,8 @@ class Karel {
     context: CanvasRenderingContext2D;
     row: number = 0;
     col: number = 0;
-    scr: number = 2;
-    lcr: number = 5;
+    smallCircleRadius: number = 2;
+    largeCircleRadius: number = 5;
     world: World;
     direction: string = "N";
     constructor(canvas: HTMLCanvasElement, world: any) {
@@ -20,20 +20,20 @@ class Karel {
         var cellCenter = this.world.getCellCenter(this.row, this.col);
         switch (this.direction) {
             case "N":
-                this.circle(this.context, cellCenter.x, cellCenter.y - this.scr, this.scr);
-                this.circle(this.context, cellCenter.x, cellCenter.y + this.lcr, this.lcr);
+                this.circle(this.context, cellCenter.x, cellCenter.y - this.smallCircleRadius, this.smallCircleRadius);
+                this.circle(this.context, cellCenter.x, cellCenter.y + this.largeCircleRadius, this.largeCircleRadius);
                 break;
             case "W":
-                this.circle(this.context, cellCenter.x - this.scr, cellCenter.y, this.scr);
-                this.circle(this.context, cellCenter.x + this.lcr, cellCenter.y, this.lcr);
+                this.circle(this.context, cellCenter.x - this.smallCircleRadius, cellCenter.y, this.smallCircleRadius);
+                this.circle(this.context, cellCenter.x + this.largeCircleRadius, cellCenter.y, this.largeCircleRadius);
                 break;
             case "S":
-                this.circle(this.context, cellCenter.x, cellCenter.y + this.scr, this.scr);
-                this.circle(this.context, cellCenter.x, cellCenter.y - this.lcr, this.lcr);
+                this.circle(this.context, cellCenter.x, cellCenter.y + this.smallCircleRadius, this.smallCircleRadius);
+                this.circle(this.context, cellCenter.x, cellCenter.y - this.largeCircleRadius, this.largeCircleRadius);
                 break;
             case "E":
-                this.circle(this.context, cellCenter.x + this.scr, cellCenter.y, this.scr);
-                this.circle(this.context, cellCenter.x - this.lcr, cellCenter.y, this.lcr);
+                this.circle(this.context, cellCenter.x + this.smallCircleRadius, cellCenter.y, this.smallCircleRadius);
+                this.circle(this.context, cellCenter.x - this.largeCircleRadius, cellCenter.y, this.largeCircleRadius);
                 break;
         }
     }
@@ -56,14 +56,14 @@ class Karel {
                 }
                 break;
             case "S":
-                if (this.row === worldSize.height - 1) {
+                if (this.row === worldSize.rows - 1) {
                     alert("cannot move");
                 }else {
                     this.row = this.row + 1;
                 }
                 break;
             case "E":
-                if (this.col === worldSize.width - 1) {
+                if (this.col === worldSize.cols - 1) {
                     alert("cannot move");
                 } else {
                     this.col = this.col + 1;
@@ -81,11 +81,11 @@ class Karel {
         }
         setTimeout(() => this.draw(), 1000);
     }
-    circle(context: CanvasRenderingContext2D, x: number, y: number, r: number) {
+    circle(context: CanvasRenderingContext2D, x: number, y: number, radius: number) {
         context.beginPath();
         context.strokeStyle = "red";
         context.lineWidth = 1;
-        context.arc(x, y, r, 0, (Math.PI / 180) * 360, false);
+        context.arc(x, y, radius, 0, (Math.PI / 180) * 360, false);
         context.stroke();
         context.closePath();
     }

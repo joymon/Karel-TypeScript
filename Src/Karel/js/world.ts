@@ -1,62 +1,44 @@
 class World {
-    private cols: number = 9;
-    private rows: number = 9;
     private context: CanvasRenderingContext2D;
-    private boardOffset: number;
     private boardWidth: number;
     private boardHeight: number;
-    private size: any;
-    constructor(canvas:HTMLCanvasElement) {
+    private size: BoardSize;
+    constructor(canvas: HTMLCanvasElement) {
         this.context = canvas.getContext("2d");
-        this.boardOffset = 0;
-        this.size = { width: 9, height: 9 };
+        this.size = {rows:9,cols:9};
     }
     getSize() {
         return this.size;
     }
-    getScreenDimensions() {
-        var w, h;
-        if ($(window).width() > $(window).height()) {
-            w = $(window).width();
-            h = $(window).height();
-        } else {
-            h = $(window).width();
-            w = $(window).height();
-        }
+    private getCellSize() {
+        return { w: this.boardWidth / this.size.cols, h: this.boardHeight / this.size.rows };
     }
-    getCellSize() {
-        return { w: this.boardWidth / this.cols, h: this.boardHeight / this.rows };
-    }
-    getCellCenter(row:number, col:number) {
-        var cellWidth = this.boardWidth / this.cols;
-        var cellHeight = this.boardHeight / this.rows;
+    getCellCenter(row: number, col: number) {
+        var cellWidth = this.boardWidth / this.size.cols;
+        var cellHeight = this.boardHeight / this.size.rows;
         return { x: (col * cellWidth) + (cellWidth / 2), y: (row * cellHeight) + (cellHeight / 2) };
     }
     draw() {
         this.context.strokeStyle = "black";
         this.boardWidth = this.context.canvas.width;
         this.boardHeight = this.context.canvas.height;
-        var x = this.boardOffset;
-        var y = 0;
         this.context.clearRect(0, 0, this.context.canvas.width, this.context.canvas.height);
-        this.iDrawSquares(x, y);
+        this.drawAllSquares(0, 0);
     }
-    iDrawBoardSquare(x:number, y:number) {
-        this.context.fillStyle = "black";
-        this.context.lineWidth = 2;
-        this.context.strokeStyle = "black";
-        this.context.strokeRect(x, y, this.boardWidth, this.boardHeight);
-    }
-    iDrawSquares(x:number, y:number) {
+    private drawAllSquares(x: number, y: number) {
         this.context.strokeStyle = "grey";
-        var cw = this.boardWidth / this.cols;
-        var ch = this.boardHeight / this.rows;
+        var cellWidth = this.boardWidth / this.size.cols;
+        var cellHeight = this.boardHeight / this.size.rows;
         // draw all 81 little squares
         this.context.lineWidth = 1;
-        for (var i = 0; i < this.rows; i++) {
-            for (var j = 0; j < this.cols; j++) {
-                this.context.strokeRect(x + (j * cw), y + (i * ch), cw, ch);
-            }
+        for (var row = 0; row < this.size.rows; row++) {
+            this.drawSquaresForRow(row, cellWidth, cellHeight);
+        }
+    }
+    private drawSquaresForRow(row: number, cellWidth: number, cellHeight: number) {
+        var x = 0, y = 0;
+        for (var col = 0; col < this.size.cols; col++) {
+            this.context.strokeRect(x + (col * cellWidth), y + (row * cellHeight), cellWidth, cellHeight);
         }
     }
 }

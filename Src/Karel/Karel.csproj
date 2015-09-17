@@ -20,6 +20,9 @@
   <ItemGroup>
     <Content Include="css\combined.min.css" />
     <Content Include="js\jquery-2.0.0.js" />
+    <TypeScriptCompile Include="js\BoardSize.ts">
+      <SubType>Code</SubType>
+    </TypeScriptCompile>
     <TypeScriptCompile Include="js\karel.ts" />
     <TypeScriptCompile Include="js\ui.ts" />
     <TypeScriptCompile Include="js\world.ts" />

@@ -1,5 +1,8 @@
+/// <reference path="karel.ts" />
+/// <reference path="world.ts" />
 "use strict";
 /// <reference path="../scripts/typings/jquery/jquery.d.ts" />
+
 var karel;
 var world;
 $(document).ready(function () {
