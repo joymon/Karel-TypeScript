@@ -7,7 +7,7 @@ class Karel {
     smallCircleRadius: number = 2;
     largeCircleRadius: number = 5;
     world: World;
-    direction: string = "N";
+    direction: Direction = Direction.North;
     constructor(canvas: HTMLCanvasElement, world: any) {
         this.element = canvas;
         this.context = this.element.getContext("2d");
@@ -19,19 +19,19 @@ class Karel {
         this.world.draw();
         var cellCenter = this.world.getCellCenter(this.row, this.col);
         switch (this.direction) {
-            case "N":
+            case Direction.North:
                 this.circle(this.context, cellCenter.x, cellCenter.y - this.smallCircleRadius, this.smallCircleRadius);
                 this.circle(this.context, cellCenter.x, cellCenter.y + this.largeCircleRadius, this.largeCircleRadius);
                 break;
-            case "W":
+            case Direction.West:
                 this.circle(this.context, cellCenter.x - this.smallCircleRadius, cellCenter.y, this.smallCircleRadius);
                 this.circle(this.context, cellCenter.x + this.largeCircleRadius, cellCenter.y, this.largeCircleRadius);
                 break;
-            case "S":
+            case Direction.South:
                 this.circle(this.context, cellCenter.x, cellCenter.y + this.smallCircleRadius, this.smallCircleRadius);
                 this.circle(this.context, cellCenter.x, cellCenter.y - this.largeCircleRadius, this.largeCircleRadius);
                 break;
-            case "E":
+            case Direction.East:
                 this.circle(this.context, cellCenter.x + this.smallCircleRadius, cellCenter.y, this.smallCircleRadius);
                 this.circle(this.context, cellCenter.x - this.largeCircleRadius, cellCenter.y, this.largeCircleRadius);
                 break;
@@ -41,28 +41,28 @@ class Karel {
         var worldSize = this.world.getSize();
 
         switch (this.direction) {
-            case "N":
+            case Direction.North:
                 if (this.row === 0) {
                     alert("cannot move");
                 } else {
                     this.row = this.row - 1;
                 }
                 break;
-            case "W":
+            case Direction.West:
                 if (this.col === 0) {
                     alert("cannot move");
                 } else {
                     this.col = this.col - 1;
                 }
                 break;
-            case "S":
+            case Direction.South:
                 if (this.row === worldSize.rows - 1) {
                     alert("cannot move");
                 }else {
                     this.row = this.row + 1;
                 }
                 break;
-            case "E":
+            case Direction.East:
                 if (this.col === worldSize.cols - 1) {
                     alert("cannot move");
                 } else {
@@ -74,10 +74,10 @@ class Karel {
     }
     turnLeft() {
         switch (this.direction) {
-            case "N": this.direction = "W"; break;
-            case "W": this.direction = "S"; break;
-            case "S": this.direction = "E"; break;
-            case "E": this.direction = "N"; break;
+            case Direction.North: this.direction = Direction.West; break;
+            case Direction.West: this.direction = Direction.South; break;
+            case Direction.South: this.direction = Direction.East; break;
+            case Direction.East: this.direction = Direction.North; break;
         }
         setTimeout(() => this.draw(), 1000);
     }

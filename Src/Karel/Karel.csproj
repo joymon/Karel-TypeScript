@@ -23,6 +23,7 @@
     <TypeScriptCompile Include="js\BoardSize.ts">
       <SubType>Code</SubType>
     </TypeScriptCompile>
+    <TypeScriptCompile Include="js\Direction.ts" />
     <TypeScriptCompile Include="js\karel.ts" />
     <TypeScriptCompile Include="js\ui.ts" />
     <TypeScriptCompile Include="js\world.ts" />
