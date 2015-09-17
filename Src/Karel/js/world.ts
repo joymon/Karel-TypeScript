@@ -1,5 +1,5 @@
 class World {
-    private context: CanvasRenderingContext2D;
+    context: CanvasRenderingContext2D;
     private boardWidth: number;
     private boardHeight: number;
     private size: BoardSize;

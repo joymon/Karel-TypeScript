@@ -1,11 +1,13 @@
 ﻿class KarelDrawer {
-    context: CanvasRenderingContext2D;
-    world: World;
-    smallCircleRadius: number = 2;
-    largeCircleRadius: number = 5;
-    constructor(drawingContext: CanvasRenderingContext2D, world: World) {
-        this.context = drawingContext;
-        this.world = world;
+    private context: CanvasRenderingContext2D;
+    private world: World;
+    private karel: Karel;
+    private smallCircleRadius: number = 2;
+    private largeCircleRadius: number = 5;
+    constructor(karel:Karel) {
+        this.karel = karel;
+        this.context = karel.world.context;
+        this.world = karel.world;
     }
     draw(row:number,col:number,direction:Direction) {
         this.world.draw();
