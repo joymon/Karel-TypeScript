@@ -5,7 +5,6 @@
     <meta charset="utf-8">
     <title>HTML5 Online Karel Simulator</title>
     <link rel="stylesheet" href="./css/combined.min.css">
-    <!--<link rel="stylesheet"href="http://simonwhitaker.github.io/github-fork-ribbon-css/gh-fork-ribbon.css" />-->
     <meta property="og:title" content="HTML5 Online Karel Simulator">
     <meta property="og:description" content="This HTML5 and Javascript based Online Karel Simulator is intended to simulate the Karel programming language which is targetted to non programmers.This is really helpful in understanding the basic concepts of prorgamming.">
     <meta name="description" content="This HTML5 and Javascript based Online Karel Simulator is intended to simulate the Karel programming language which is targetted to non programmers.This is really helpful in understanding the basic concepts of prorgamming.">
@@ -13,20 +12,25 @@
 <body>
     <noscript>
         &lt;h2&gt; This HTML 5 & Javascript based online Karel programming language simulator
-        needs javascript to be enabled as we are learning the programming by executing javascript
-        language.. &lt;/h2&gt;
+        needs javascript to be enabled as we are learning the programming by executing javascript.
+        language.. <br/>
+        This Karel simulator is written in TypeScript.
     </noscript>
-    <header>
-        <h1>
-            HTML5 & Javascript based Karel simulator</h1>
+    <header style="overflow:hidden">
+        <section style="float:left">
+            <h1>
+                HTML5 & Javascript based Karel simulator
+            </h1>
+            <h4>This Karel simulator is written in TypeScript.</h4>
+        </section>
+        <a href="https://github.com/joymon/Karel-TypeScript" style="float: right">
+            <img src="https://camo.githubusercontent.com/a6677b08c955af8400f44c6298f40e7d19cc5b2d/68747470733a2f2f73332e616d617a6f6e6177732e636f6d2f6769746875622f726962626f6e732f666f726b6d655f72696768745f677261795f3664366436642e706e67"
+                 alt="Fork me on GitHub" data-canonical-src="https://s3.amazonaws.com/github/ribbons/forkme_right_gray_6d6d6d.png">
+        </a>
         
     </header>
     <div style="overflow: hidden;" class="not-selectable" unselectable="on">
-        <div class="github-fork-ribbon-wrapper right">
-            <div class="github-fork-ribbon">
-                <a href="https://github.com/joymon/Karel-TypeScript">Fork me on GitHub</a>
-            </div>
-        </div>
+       
         <section style="float: left; width: 40%">
             <header>
                 <h2>
@@ -59,7 +63,7 @@
                 Run program</span>
         </div>
     </div>
-    
+    <!-- BOTTOM LEFT RIBBON: END COPYING HERE -->
     <script src="./js/jquery-2.0.0.js"></script>
     <script src="./js/karel.js"></script>
     <script src="./js/world.js"></script>
