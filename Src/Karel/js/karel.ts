@@ -30,11 +30,11 @@ class Karel {
             case "S":
                 this.circle(this.context, cellCenter.x, cellCenter.y + this.scr, this.scr);
                 this.circle(this.context, cellCenter.x, cellCenter.y - this.lcr, this.lcr);
-                break
+                break;
             case "E":
                 this.circle(this.context, cellCenter.x + this.scr, cellCenter.y, this.scr);
                 this.circle(this.context, cellCenter.x - this.lcr, cellCenter.y, this.lcr);
-                break
+                break;
         }
     }
     move() {
@@ -42,20 +42,32 @@ class Karel {
 
         switch (this.direction) {
             case "N":
-                if (this.row == 0) alert("cannot move");
-                else this.row = this.row - 1;
+                if (this.row === 0) {
+                    alert("cannot move");
+                } else {
+                    this.row = this.row - 1;
+                }
                 break;
             case "W":
-                if (this.col == 0) alert("cannot move");
-                else this.col = this.col - 1;
+                if (this.col === 0) {
+                    alert("cannot move");
+                } else {
+                    this.col = this.col - 1;
+                }
                 break;
             case "S":
-                if (this.row == worldSize.height - 1) alert("cannot move");
-                else this.row = this.row + 1;
+                if (this.row === worldSize.height - 1) {
+                    alert("cannot move");
+                }else {
+                    this.row = this.row + 1;
+                }
                 break;
             case "E":
-                if (this.col == worldSize.width - 1) alert("cannot move");
-                else this.col = this.col + 1;
+                if (this.col === worldSize.width - 1) {
+                    alert("cannot move");
+                } else {
+                    this.col = this.col + 1;
+                }
                 break;
         }
         setTimeout(() => this.draw(), 1000);
@@ -67,10 +79,9 @@ class Karel {
             case "S": this.direction = "E"; break;
             case "E": this.direction = "N"; break;
         }
-        setTimeout(() =>  this.draw(), 1000);
+        setTimeout(() => this.draw(), 1000);
     }
-    //Starting the cons logic
-    circle(context:CanvasRenderingContext2D, x, y, r) {
+    circle(context: CanvasRenderingContext2D, x: number, y: number, r: number) {
         context.beginPath();
         context.strokeStyle = "red";
         context.lineWidth = 1;

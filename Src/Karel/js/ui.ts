@@ -1,8 +1,9 @@
+"use strict";
 /// <reference path="../scripts/typings/jquery/jquery.d.ts" />
 var karel;
 var world;
 $(document).ready(function () {
-    var canvas = <HTMLCanvasElement>document.getElementById("world")
+    var canvas = <HTMLCanvasElement>document.getElementById("world");
     world = new World(canvas);
     world.draw();
     karel = new Karel(canvas, world);
@@ -23,6 +24,7 @@ $("#draw-button").click(function () {
     world.draw();
     karel.draw();
 });
+
 function turnLeft() {
     karel.turnLeft();
 }
