@@ -25,6 +25,7 @@
     </TypeScriptCompile>
     <TypeScriptCompile Include="js\Direction.ts" />
     <TypeScriptCompile Include="js\karel.ts" />
+    <TypeScriptCompile Include="js\KarelDrawer.ts" />
     <TypeScriptCompile Include="js\ui.ts" />
     <TypeScriptCompile Include="js\world.ts" />
     <Content Include="karel.htm" />
