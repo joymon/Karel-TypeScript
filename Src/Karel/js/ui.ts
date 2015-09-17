@@ -1,11 +1,11 @@
 /// <reference path="../scripts/typings/jquery/jquery.d.ts" />
-
+var karel;
+var world;
 $(document).ready(function () {
-    var world = new World(document.getElementById("world"));
+    var canvas = <HTMLCanvasElement>document.getElementById("world")
+    world = new World(canvas);
     world.draw();
-    karel = new test();
-    karel.test();
-    karel = new Karel(document.getElementById("world"), world);
+    karel = new Karel(canvas, world);
 });
 $("#back-button").click(function () {
     var program = $("#codeArea").val();
@@ -20,11 +20,8 @@ $("#move-button").click(function () {
     eval(program);
 });
 $("#draw-button").click(function () {
-    var world = new World(document.getElementById("world"));
     world.draw();
-    karel = new test();
-    karel.test();
-    karel = new Karel(document.getElementById("world"), world);
+    karel.draw();
 });
 function turnLeft() {
     karel.turnLeft();
@@ -32,4 +29,3 @@ function turnLeft() {
 function move() {
     karel.move();
 }
-var karel = 10;
