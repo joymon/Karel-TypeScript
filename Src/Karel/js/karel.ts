@@ -9,9 +9,9 @@ class Karel {
     direction: Direction = Direction.North;
     drawer: KarelDrawer;
     constructor(canvas: HTMLCanvasElement, world: World) {
+        console.log("Inside Karel cons");
         this.world = world;
         this.drawer = new KarelDrawer(this);
-        this.draw();
     }
     draw() {
         this.drawer.draw(this.row, this.col, this.direction);
@@ -26,7 +26,6 @@ class Karel {
     }
     executeAction(action: IKarelAction) {
         action.Execute(this);
-        setTimeout(() => this.draw(), 1000);
     }
 }
 

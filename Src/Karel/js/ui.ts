@@ -1,33 +1,36 @@
 /// <reference path="karel.ts" />
 /// <reference path="world.ts" />
-"use strict";
 /// <reference path="../scripts/typings/jquery/jquery.d.ts" />
-
-var karel;
-var world;
+"use strict";
+var karel:Karel;
+var world:World;
 $(document).ready(function () {
     var canvas = <HTMLCanvasElement>document.getElementById("world");
     world = new World(canvas);
     world.draw();
     karel = new Karel(canvas, world);
+    karel.draw();
 });
 $("#back-button").click(function () {
     var program = $("#codeArea").val();
-    eval(program);
+    executeProgram(program);
 });
 $("#turnLeft-button").click(function () {
     var program = "turnLeft();";
-    eval(program);
+    executeProgram(program);
 });
 $("#move-button").click(function () {
     var program = "move();";
-    eval(program);
+    executeProgram(program);
 });
 $("#draw-button").click(function () {
     world.draw();
     karel.draw();
 });
-
+function executeProgram(program:string) {
+    eval(program);
+    setTimeout(() => karel.draw(), 1000);
+}
 function turnLeft() {
     karel.turnLeft();
 }
