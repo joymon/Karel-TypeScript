@@ -1,5 +1,6 @@
 /// <reference path="karel.ts" />
 /// <reference path="world.ts" />
+/// <reference path="WorldDrawer.ts" />
 /// <reference path="../scripts/typings/jquery/jquery.d.ts" />
 "use strict";
 var karel: Karel;
@@ -11,8 +12,8 @@ $(document).ready(function () {
     world = new World();
     worldDrawer = new WorldDrawer(world, canvas);
     worldDrawer.draw();
-    karel = new Karel( world);
-    karelDrawer = new KarelDrawer(karel);
+    karel = new Karel(world);
+    karelDrawer = new KarelDrawer(karel, canvas);
     karelDrawer.draw();
 });
 $("#back-button").click(function () {
@@ -31,9 +32,12 @@ $("#draw-button").click(function () {
     worldDrawer.draw();
     karelDrawer.draw();
 });
-function executeProgram(program:string) {
+function executeProgram(program: string) {
     eval(program);
-    setTimeout(() => karelDrawer.draw(), 1000);
+    setTimeout(() => {
+        worldDrawer.draw();
+        karelDrawer.draw();
+    }, 1000);
 }
 function turnLeft() {
     karel.turnLeft();
