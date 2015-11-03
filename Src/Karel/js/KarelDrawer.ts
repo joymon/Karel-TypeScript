@@ -6,7 +6,7 @@
         this.karel = karel;
     }
     draw() {
-        this.karel.world.draw();
+        // this.karel.world.draw();
         var cellCenter = this.karel.world.getCellCenter(this.karel.row, this.karel.col);
         if (this.karel.direction === undefined) {
             throw "Direction is empty";

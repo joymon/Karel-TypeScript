@@ -4,12 +4,14 @@
 "use strict";
 var karel: Karel;
 var karelDrawer: KarelDrawer;
-var world:World;
+var world: World;
+var worldDrawer: WorldDrawer;
 $(document).ready(function () {
     var canvas = <HTMLCanvasElement>document.getElementById("world");
-    world = new World(canvas);
-    world.draw();
-    karel = new Karel(canvas, world);
+    world = new World();
+    worldDrawer = new WorldDrawer(world, canvas);
+    worldDrawer.draw();
+    karel = new Karel( world);
     karelDrawer = new KarelDrawer(karel);
     karelDrawer.draw();
 });
@@ -26,8 +28,8 @@ $("#move-button").click(function () {
     executeProgram(program);
 });
 $("#draw-button").click(function () {
-    world.draw();
-    karel.draw();
+    worldDrawer.draw();
+    karelDrawer.draw();
 });
 function executeProgram(program:string) {
     eval(program);

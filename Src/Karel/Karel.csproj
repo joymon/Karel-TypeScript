@@ -30,9 +30,10 @@
     <TypeScriptCompile Include="js\TurnLeftAction.ts" />
     <TypeScriptCompile Include="js\MoveAction.ts" />
     <TypeScriptCompile Include="js\ui.ts" />
-    <TypeScriptCompile Include="js\world.ts" />
     <Content Include="karel.htm" />
     <Content Include="web.config" />
+    <TypeScriptCompile Include="js\world.ts" />
+    <TypeScriptCompile Include="js\WorldDrawer.ts" />
     <TypeScriptCompile Include="Scripts\typings\jquery\jquery.d.ts" />
   </ItemGroup>
   <ItemGroup>

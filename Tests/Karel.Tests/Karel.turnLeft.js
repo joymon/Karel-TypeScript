@@ -12,13 +12,15 @@ describe('Karel', function () {
         var karel = new Karel();
         karel.turnLeft();
         expect(karel.direction).toBe(Direction.West);
+        console.log("Completed test:turnLeft - From North to West")
     });
+
     it('turnLeft - 3 turnLefts should be equal to turnRight', function () {
-        console.log(" inside 3");
         var karel = new Karel();
         karel.turnLeft();
         karel.turnLeft();
         karel.turnLeft();
         expect(karel.direction).toBe(Direction.East);
+        console.log('Completed test:turnLeft - 3 turnLefts should be equal to turnRight');
     });
 });
