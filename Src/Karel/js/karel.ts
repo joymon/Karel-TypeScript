@@ -1,21 +1,21 @@
 /// <reference path="kareldrawer.ts" />
 /// <reference path="moveaction.ts" />
 /// <reference path="turnleftaction.ts" />
+/// <reference path="direction.ts" />
+/// <reference path="ikarelaction.ts" />
 /// <reference path="world.ts" />
 class Karel {
     row: number = 0;
     col: number = 0;
     world: World;
     direction: Direction = Direction.North;
-    drawer: KarelDrawer;
     constructor(canvas: HTMLCanvasElement, world: World) {
-        console.log("Inside Karel cons");
+        
         this.world = world;
-        this.drawer = new KarelDrawer(this);
+        this.col = 0;
+        this.row = 0;
     }
-    draw() {
-        this.drawer.draw(this.row, this.col, this.direction);
-    }
+    
     move() {
         var action = new MoveAction();
         this.executeAction(action);

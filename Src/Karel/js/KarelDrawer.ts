@@ -5,10 +5,13 @@
     constructor(karel:Karel) {
         this.karel = karel;
     }
-    draw(row:number,col:number,direction:Direction) {
+    draw() {
         this.karel.world.draw();
-        var cellCenter = this.karel.world.getCellCenter(row, col);
-        switch (direction) {
+        var cellCenter = this.karel.world.getCellCenter(this.karel.row, this.karel.col);
+        if (this.karel.direction === undefined) {
+            throw "Direction is empty";
+        }
+        switch (this.karel.direction) {
             case Direction.North:
                 this.circle(this.karel.world.context, cellCenter.x, cellCenter.y - this.smallCircleRadius, this.smallCircleRadius);
                 this.circle(this.karel.world.context, cellCenter.x, cellCenter.y + this.largeCircleRadius, this.largeCircleRadius);

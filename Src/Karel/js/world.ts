@@ -1,3 +1,5 @@
+/// <reference path="boardsize.ts" />
+
 class World {
     context: CanvasRenderingContext2D;
     private boardWidth: number;
@@ -14,6 +16,7 @@ class World {
         return { w: this.boardWidth / this.size.cols, h: this.boardHeight / this.size.rows };
     }
     getCellCenter(row: number, col: number) {
+        if (row === undefined || col === undefined) throw "row or colum undefined";
         var cellWidth = this.boardWidth / this.size.cols;
         var cellHeight = this.boardHeight / this.size.rows;
         return { x: (col * cellWidth) + (cellWidth / 2), y: (row * cellHeight) + (cellHeight / 2) };
