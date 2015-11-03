@@ -1,7 +1,7 @@
 ﻿/// <reference path="g:\github\karel-typescript\src\karel\js/karel.js"/>
 /// <reference path="g:\github\karel-typescript\src\karel\js/kareldrawer.js"/>
 /// <reference path="g:\github\karel-typescript\src\karel\js/Direction.js"/>
-/// <reference path="g:\github\Karel-TypeScript\Tests\Karel.Tests\Scripts\jasmine/jasmine.js" />
+/// <reference path="g:\github\Karel-TypeScript\Tests\Karel.Tests\Scripts\jasmine\jasmine.js" />
 /// <reference path="g:\github\karel-typescript\src\karel\js/TurnLeftAction.js"/>
 describe('Karel', function () {
 
