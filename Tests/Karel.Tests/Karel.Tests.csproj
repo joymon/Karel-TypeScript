@@ -101,6 +101,7 @@
     <Content Include="Scripts\jasmine\jasmine.js" />
     <Content Include="Views\Jasmine\SpecRunner.cshtml" />
     <Content Include="packages.config" />
+    <Content Include="chutzpah.json" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
